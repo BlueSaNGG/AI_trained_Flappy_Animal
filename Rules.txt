@@ -1,0 +1,25 @@
+Object:
+    1. pipe
+    2. bird
+    3. ground
+
+NEAT:
+    INPUT: 
+                Bird.y , TOP PIPE, BOTTOM PIPE
+
+    OUTPUT: 
+                Jump / Do not Jump
+
+    ACTIVATION FUNCTION: 
+                        TanH (-1, 1)/ sigmoid / softmax
+
+    POPULATOIN SIZE:    
+                        10 ~ 100
+                        Gen 0 100 birds -> choose the best -> GEN 1 100 birds -> ...
+
+    FITNESS FUNCTION:   
+                        Evaluate how good the bird are
+                        Further is better
+                        
+    MAX GENERATION:        
+                        30
