@@ -1,8 +1,5 @@
-from distutils.command.config import config
-import winreg
 import pygame
 import neat
-import time
 import os
 import random
 pygame.font.init()
@@ -482,7 +479,7 @@ def user_play():
     pygame.quit()
     quit()
 
-def run(config_path):
+def run(config_path, choose = None):
     config = neat.config.Config(
         neat.DefaultGenome, 
         neat.DefaultReproduction,
@@ -496,14 +493,9 @@ def run(config_path):
     p.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()
     p.add_reporter(stats)
-
-    winner = p.run(main, 50)
-    # winner = p.run(main_graph, 50)
-    # pygame.quit()
+    if not choose:
+        winner = p.run(main, 50)
+    else:
+        winner = p.run(main_graph, 50)
     rungame(winner, config)
 
-if __name__ == "__main__":
-    local_dir = os.path.dirname(__file__)
-    config_path = os.path.join(local_dir, "CONFIG.txt")
-    run(config_path)
-    # user_play()
